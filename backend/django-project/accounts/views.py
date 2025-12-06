@@ -1,4 +1,3 @@
-from django.shortcuts import render
 
 # accounts/views.py
 
@@ -10,27 +9,32 @@ from .models import User
 from .serializers import CustomUserSerializer
 
 
+from django.shortcuts import render
+
+
+from .models import User
+from .serializers import CustomUserSerializer
+
+
 class MeView(APIView):
-    """
-    Simple endpoint to test CustomUserSerializer.
-    GET  -> return logged-in user's data
-    PATCH -> update logged-in user (partial update)
-    """
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
-        serializer = CustomUserSerializer(request.user)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        serializer = CustomUserSerializer(
+            request.user,
+            context={"request": request}
+        )
+        return Response(serializer.data)
 
     def patch(self, request):
         serializer = CustomUserSerializer(
             request.user,
             data=request.data,
-            partial=True  # allow updating one field at a time
+            partial=True,
+            context={"request": request}
         )
-
         if serializer.is_valid():
             user = serializer.save()
-            return Response(CustomUserSerializer(user).data, status=status.HTTP_200_OK)
+            return Response(CustomUserSerializer(user, context={"request": request}).data)
+        return Response(serializer.errors, status=400)
 
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
