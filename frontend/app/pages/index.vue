@@ -40,7 +40,9 @@ const parts = ref([
 
 const animationDone = ref(false);
 
-onMounted(() => {
+onMounted(async () => {
+  await new Promise((resolve) => setTimeout(resolve, 500));
+
   for (let i = 0; i < parts.value.length; i++) {
     setTimeout(() => {
       const part = parts.value[i];
