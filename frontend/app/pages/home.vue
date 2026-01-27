@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isLoaded" ref="page" class="flex h-[calc(100dvh-3.5rem)] flex-col items-start justify-start gap-6 overflow-y-scroll p-10">
+  <div ref="page" class="flex h-[calc(100dvh-3.5rem)] flex-col items-start justify-start gap-6 overflow-y-scroll p-10">
     <h3 class="text-3xl font-bold">Dashboard</h3>
 
     <div class="flex w-full items-start justify-between gap-6">
@@ -23,7 +23,6 @@
       </div>
     </div>
   </div>
-  <div v-else class="flex h-[calc(100dvh-3.5rem)] flex-col items-start justify-start gap-6 overflow-y-scroll p-10"></div>
 </template>
 
 <script setup lang="ts">
@@ -40,9 +39,6 @@ const page = useTemplateRef("page");
 
 const loadedHackathons = ref(currentHackathons.value.slice(0, 5));
 const loadedHackathonsIndex = ref(currentHackathons.value.length <= 5 ? -1 : 5);
-
-const isLoaded = ref(false);
-onMounted(() => setTimeout(() => (isLoaded.value = true), 200));
 
 function infiniteScrollHandler() {
   if (!page.value || loadedHackathonsIndex.value === -1) return;

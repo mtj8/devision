@@ -34,7 +34,7 @@ export default [
     rules: {
       "array-callback-return": ["warn", { allowImplicit: true }],
       curly: ["warn", "multi-line"],
-      "id-length": ["warn", { exceptions: ["a", "b", "_"] }], // .sort() and route queries
+      "id-length": ["warn", { exceptions: ["a", "b", "_", "i"] }], // .sort() and route queries
       "no-template-curly-in-string": "warn",
       "no-unreachable-loop": "warn",
       "no-use-before-define": "warn",
