@@ -34,26 +34,6 @@
 
 <script setup lang="ts">
 defineProps<{ hackathon: Hackathon }>();
-
-const now = Date.now();
-
-/** Returns a string describing the time remaining until the specified date.
- * @param date The future date to calculate the time remaining until.
- * @return A string representing the time remaining until the date in days, hours, or minutes.
- */
-function daysUntil(date: Date) {
-  const diffTime = date.getTime() - now;
-
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  if (diffDays >= 7) return date.toLocaleString();
-  if (diffDays >= 1) return `${diffDays} day${diffDays !== 1 ? "s" : ""}`;
-
-  const diffHours = Math.ceil(diffTime / (1000 * 60 * 60));
-  if (diffHours >= 1) return `${diffHours} hour${diffHours !== 1 ? "s" : ""}`;
-
-  const diffMinutes = Math.ceil(diffTime / (1000 * 60));
-  return `${diffMinutes} minute${diffMinutes !== 1 ? "s" : ""}`;
-}
 </script>
 
 <style scoped></style>

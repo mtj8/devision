@@ -8,7 +8,6 @@ definePageMeta({
   redirectIfAuth: false,
   middleware: (to) => {
     const userStore = useUserStore();
-    console.log(to.name);
     if (userStore.user?.uuid === to.params.uuid) return navigateTo("/profile");
   },
   layout: "dashboard"
