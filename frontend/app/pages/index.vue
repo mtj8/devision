@@ -5,7 +5,7 @@
     </Transition>
 
     <div class="fixed bottom-10 left-1/2 flex -translate-x-1/2 items-center justify-center gap-10">
-      <Transition>
+      <Transition name="plain">
         <NuxtLink
           v-show="animationDone"
           to="/login"
@@ -54,6 +54,17 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.plain-enter-active {
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.plain-enter-from {
+  opacity: 0;
+  transform: translateY(5rem);
+}
+
 .v-enter-active {
   animation: bounce-in 1s;
 }
