@@ -1,11 +1,17 @@
 <template>
   <div class="fixed top-0 left-0 flex h-dvh w-dvw items-center justify-center">
-    <Transition v-for="(part, i) in parts" :key="part.src">
-      <img v-show="part.isVisible" :src="part.src" aria-hidden="true" class="h-52" :class="{ float: animationDone }" :style="{ animationDelay: `${animationDone ? i * 250 : 0}ms` }" />
-    </Transition>
+    <img
+      v-for="(part, i) in parts"
+      :key="part.src"
+      :src="part.src"
+      aria-hidden="true"
+      class="h-20 sm:h-36 md:h-44 lg:h-62 xl:h-80"
+      :class="{ float: animationDone, 'bounce-in': part.isVisible, 'opacity-0': !part.isVisible }"
+      :style="{ animationDelay: `${animationDone ? i * 250 : 0}ms` }"
+    />
 
     <div class="fixed bottom-10 left-1/2 flex -translate-x-1/2 items-center justify-center gap-10">
-      <Transition name="plain">
+      <Transition>
         <NuxtLink
           v-show="animationDone"
           to="/login"
@@ -56,19 +62,15 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.plain-enter-active {
+.v-enter-active {
   transition:
     opacity 0.5s ease,
     transform 0.5s ease;
 }
 
-.plain-enter-from {
+.v-enter-from {
   opacity: 0;
   transform: translateY(5rem);
-}
-
-.v-enter-active {
-  animation: bounce-in 1s;
 }
 
 @keyframes bounce-in {
@@ -86,6 +88,10 @@ onMounted(async () => {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.bounce-in {
+  animation: bounce-in 1s forwards;
 }
 
 @keyframes float {
