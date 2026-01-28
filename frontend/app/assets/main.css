@@ -1,1 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&family=Preahvihear&display=swap");
 @import "tailwindcss";
+@plugin "daisyui" {
+  prefix: "du-";
+  logs: false;
+}
+
+@theme {
+  --color-theme: #565dc5;
+  --color-bg-lighter: #363636;
+  --color-bg-base: #303030;
+  --color-bg-darker: #282828;
+  --color-bg-darkest: #222222;
+  --color-text-base: #c8c8c8;
+  --color-text-lighter: #e0e0e0;
+}
+
+html {
+  @apply bg-bg-darker text-text-base;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+
+body {
+  @apply bg-bg-base;
+}
+
+button {
+  @apply cursor-pointer;
+}
+
+* {
+  font-family: "National Park", sans-serif;
+}
+
+.preahvihear {
+  font-family: "Preahvihear", sans-serif;
+}

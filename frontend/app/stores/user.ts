@@ -1,6 +1,9 @@
 export const useUserStore = defineStore("userStore", () => {
-  const user = ref<User>();
+  const user = ref<UserProfile>();
   const isAuth = ref(false);
 
-  return { user, isAuth };
+  const friends = ref<PublicUser[]>([]);
+  const currentHackathons = ref<Hackathon[]>([]);
+
+  return { user, isAuth, friends, currentHackathons };
 });

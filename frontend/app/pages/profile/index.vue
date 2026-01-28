@@ -4,8 +4,9 @@
 
 <script setup lang="ts">
 definePageMeta({
-  requiresAuth: false,
-  redirectIfAuth: true
+  requiresAuth: true,
+  redirectIfAuth: false,
+  layout: "dashboard"
 });
 </script>
 

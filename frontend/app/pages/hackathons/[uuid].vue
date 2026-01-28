@@ -3,8 +3,11 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{}>();
-const emit = defineEmits<{}>();
+definePageMeta({
+  requiresAuth: true,
+  redirectIfAuth: false,
+  layout: "dashboard"
+});
 </script>
 
 <style scoped></style>

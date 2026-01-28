@@ -6,19 +6,27 @@
 - **Docker Compose v2** plugin
 
 ## Setup
-first setup .env file
 
-use example_env
+1. create a `.env` file
+
+```sh
+POSTGRES_USER = # user
+POSTGRES_PASSWORD = # password
+POSTGRES_DB = # database name
+
+SECRET_KEY = # secret key
+DATABASE_URL = # url
+```
 
 or look at the shared drive for mine
 
-*might need to use sudo*
+_might need to use sudo_
 
 docker compose build
 
 docker compose up
 
-*check http://localhost:8000/ to confirm it worked*
+_check http://localhost:8000/ to confirm it worked_
 
 ## Useful Commands
 
@@ -26,7 +34,7 @@ docker compose up
 - **docker compose up** (start)
 
 - **docker exec -it postgres psql -U postgres** (access area to run postgres commands)
-- **\c <database_name>** *just do \c for default db* (enter a database)
+- **\c <database_name>** _just do \c for default db_ (enter a database)
 - **\d** (view stuff in the db you entered)
 - **\d+ <table_name>**
 - **\q** (quit)
@@ -35,8 +43,8 @@ docker compose up
 - run commands for django here and other related stuff
 
 ## Tips
-- NEVER run pip install ....   instead add it to requirements.txt
-    - sudo docker compose up --build
+- NEVER run pip install .... instead add it to requirements.txt
+  - sudo docker compose up --build
 - Don't run django commands outside of the docker container (explanation on how to enter in commands section)
 
 ## Models

@@ -28,8 +28,6 @@ jobs:
             **/*.env.*
             **/venv/**
             **/.venv/**
-          files_ignore: |
-            **/.env.example
 
       - name: Fail if bad files added
         if: steps.changed_files.outputs.any_changed == 'true' || steps.changed_files.outputs.any_modified == 'true'
@@ -41,7 +39,8 @@ jobs:
   build:
     timeout-minutes: 10
     runs-on: ubuntu-latest
-    name: Frontend Build
+    name: Build (frontend)
+    needs: bad-commit-check
 
     steps:
       - name: Checkout
@@ -60,11 +59,34 @@ jobs:
         run: npm run build
         working-directory: ./frontend
 
-  # for frontend
+  lint:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    name: ESLint (frontend)
+    needs: build
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set Node.js version to 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./frontend
+
+      - name: ESLint
+        run: npm run lint
+        working-directory: ./frontend
+
   typecheck:
     timeout-minutes: 10
     runs-on: ubuntu-latest
-    name: Typecheck
+    name: Typecheck (frontend)
+    needs: build
 
     steps:
       - name: Checkout
@@ -83,11 +105,11 @@ jobs:
         run: npm run typecheck
         working-directory: ./frontend
 
-  # for frontend
   prettier:
     timeout-minutes: 10
     runs-on: ubuntu-latest
-    name: Prettier
+    name: Prettier (frontend)
+    needs: build
 
     steps:
       - name: Checkout
