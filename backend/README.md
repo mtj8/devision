@@ -43,6 +43,73 @@ _check http://localhost:8000/ to confirm it worked_
 - run commands for django here and other related stuff
 
 ## Tips
-
 - NEVER run pip install .... instead add it to requirements.txt
+  - sudo docker compose up --build
 - Don't run django commands outside of the docker container (explanation on how to enter in commands section)
+
+## Models
+
+### Accounts
+```mermaid
+erDiagram
+    USER {
+        UUID id PK
+        string email
+        string username
+        string first_name
+        string last_name
+        string visibility
+        smallint xp
+        smallint level
+        smallint grad_year
+        string discord
+        string instagram
+        string github
+        string linkedin
+        text bio
+        json blocked
+        datetime updated_at
+        datetime date_joined
+    }
+
+    SCHOOL {
+        int id PK
+        string name
+    }
+
+    MAJOR {
+        int id PK
+        string name
+    }
+
+    SKILL {
+        int id PK
+        string name
+    }
+
+    INTEREST {
+        int id PK
+        string name
+    }
+
+    %% --- Many-To-Many Relations ---
+    USER ||--o{ USER_SKILLS : "has"
+    SKILL ||--o{ USER_SKILLS : "used by"
+
+    USER ||--o{ USER_INTERESTS : "has"
+    INTEREST ||--o{ USER_INTERESTS : "chosen by"
+
+    USER_SKILLS {
+        UUID user_id FK
+        int skill_id FK
+    }
+
+    USER_INTERESTS {
+        UUID user_id FK
+        int interest_id FK
+    }
+
+    %% --- Many-To-One ( User -> School/Major ) ---
+    SCHOOL ||--o{ USER : "has many"
+    MAJOR  ||--o{ USER : "has many"
+```

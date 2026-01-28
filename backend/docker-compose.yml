@@ -24,7 +24,7 @@ services:
       dockerfile: Dockerfile
     container_name: django
     working_dir: /app # where the commands will be run
-    command: bash -lc "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    command: bash -lc "python manage.py runserver 0.0.0.0:8000" #python manage.py migrate &&
     environment:
       DATABASE_URL: ${DATABASE_URL} 
     env_file:
