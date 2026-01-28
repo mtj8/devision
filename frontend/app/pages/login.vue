@@ -166,11 +166,11 @@ async function login() {
   ];
   userStore.currentHackathons = [
     {
-      uuid: "1111-1111-1111-1111",
-      name: "HackBUtt 2026",
-      img: "/example-splash/grass.jpg",
+      uuid: "hb87gybrwb98risdughiuds",
+      name: "Not HackBU 2026",
+      img: "/example-splash/shower.jpg",
       description:
-        'Registrations for HackBUtt 2026 are now open! This 24-hour event in Binghamton\'s Innovative Toilet Complex is set for March 7th and 8th, when unreliable students will compete in teams of 1-4 to build the most impressive pieces of shit within that time. Besides a chance to exercise your procrastinating and shitposting skills, this is also a great chance to farm LinkedIn connections with our sponsors and with other students. Our programming features communism for noobs, "skill"-based matchmaking, and an award ceremony with NO prizes in ANY categories.',
+        "Registrations for HackBU 2026 are not open! This 24-hour event in Binghamton's Innovative Technology Complex is not set for March 7th and 8th, when university students will not compete in teams of 1-4 to build the least impressive project within that time. Without a chance to exercise your programming and project management skills, this is a horrible chance to not network with our sponsors and with other students. Our programming does not feature crash-courses for newcomers, team-matching, and an award ceremony with prizes in no categories.",
       startDate: new Date(1769706000 * 1000),
       endDate: new Date(1769792400 * 1000),
       participants: 152,
@@ -202,9 +202,9 @@ async function login() {
       }
     },
     {
-      uuid: "2222-2222-2222-2222",
+      uuid: "dug87ewgtegioaf",
       name: "Hack the North 2026",
-      img: "/example-splash/shower.jpg",
+      img: "/example-splash/grass.jpg",
       description:
         "Hack the North is back! Join us for an epic weekend of coding, creativity, and collaboration at Canada's largest hackathon. Whether you're a seasoned hacker or just starting out, Hack the North offers a welcoming environment to learn new skills, build innovative projects, and connect with like-minded individuals. Don't miss this opportunity to be part of a vibrant tech community and make your mark on the future of technology.",
       startDate: new Date(1772976226 * 1000),
@@ -212,7 +212,7 @@ async function login() {
       participants: 301
     },
     {
-      uuid: "3333-3333-3333-3333",
+      uuid: "eug78ewtg8egvsdgoiasop",
       name: "2026 Global Hackathon",
       img: "/example-splash/outside.jpg",
       description:

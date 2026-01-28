@@ -8,7 +8,7 @@
       <img v-if="hackathon.img" :src="hackathon.img" />
     </div>
 
-    <p class="line-clamp-3 text-center">{{ hackathon.description }}</p>
+    <p class="text-center">{{ hackathon.description }}</p>
 
     <div class="flex w-full items-center justify-center gap-10">
       <div class="bg-bg-darker flex w-1/2 shrink-0 flex-col items-center justify-start rounded-lg p-6" :class="{ 'w-full!': !hackathon.team }">
