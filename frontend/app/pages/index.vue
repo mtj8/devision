@@ -7,7 +7,7 @@
       aria-hidden="true"
       class="h-20 sm:h-36 md:h-44 lg:h-62 xl:h-80"
       :class="{ float: animationDone, 'bounce-in': part.isVisible, 'opacity-0': !part.isVisible }"
-      :style="{ animationDelay: `${animationDone ? i * 250 : 0}ms` }"
+      :style="{ animationDelay: `${animationDone ? i * 150 : 0}ms` }"
     />
 
     <div class="fixed bottom-10 left-1/2 flex -translate-x-1/2 items-center justify-center gap-10">
