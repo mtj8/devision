@@ -12,7 +12,7 @@ npm i
 
 ```sh
 NUXT_PUBLIC_BASE_URL=http://localhost:3000/
-NUXT_PUBLIC_BACKEND=http://127.0.0.1:8000/
+NUXT_PUBLIC_BACKEND=http://localhost:8000/
 ```
 
 4. host it
