@@ -110,5 +110,5 @@ export async function fetchEndpoint(endpoint: string, method?: string, body?: ob
  */
 export async function fetchEndpoint<T, K = Error>(endpoint: string, method?: string, body?: object): Promise<Result<T, K>>;
 export async function fetchEndpoint<T, K = Error>(endpoint: string, method?: string, body?: object): Promise<Result<T | void, K>> {
-  return tryCatch<T, K>(requestEndpoint<T>(`api/${endpoint}`, method, body));
+  return tryCatch<T, K>(requestEndpoint<T>(`api/${endpoint}/`, method, body));
 }
