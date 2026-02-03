@@ -1,3 +1,7 @@
 .venv
 .env
 pyrightconfig.json
+
+# Python bytecode
+__pycache__/
+*.py[cod]
