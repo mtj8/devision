@@ -26,7 +26,11 @@ docker compose build
 
 docker compose up
 
+docker exec -it django python manage.py migrate
+
 _check http://localhost:8000/ to confirm it worked_
+
+_optionally run **docker exec -it django python manage.py createsuperuser** to create admin acc_
 
 ## Useful Commands
 
