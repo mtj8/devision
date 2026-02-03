@@ -6,3 +6,4 @@ typing_extensions==4.15.0
 python-dotenv==1.0.1
 dj-database-url==2.3.0
 djangorestframework==3.16.1
+django-cors-headers==4.9.0

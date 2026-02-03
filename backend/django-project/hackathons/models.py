@@ -20,7 +20,7 @@ class Hackathon(models.Model):
 
     @property
     def participants_count(self) -> int:
-        """Count distinct users across teams for this hackathon."""
+        # Count distinct users across teams for this hackathon.
         return (
             User.objects.filter(teams__hackathon_entries__hackathon=self)
             .distinct()
