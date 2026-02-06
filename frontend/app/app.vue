@@ -9,9 +9,9 @@ const config = useRuntimeConfig();
 
 useSeoMeta({
   ogUrl: () => config.public.baseUrl,
-  ogImage: () => `${config.public.baseUrl}devision-full.png`,
+  ogImage: () => `${config.public.baseUrl}logo/devision-full.png`,
   twitterCard: "summary_large_image",
-  twitterImage: () => `${config.public.baseUrl}devision-full.png`
+  twitterImage: () => `${config.public.baseUrl}logo/devision-full.png`
 });
 </script>
 

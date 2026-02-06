@@ -1,7 +1,7 @@
 <template>
   <div class="flex min-h-dvh w-screen flex-col items-center justify-center pb-6">
     <NuxtLink to="/">
-      <img src="/devision-full.svg" aria-hidden="true" class="mb-6 h-32" />
+      <img src="/logo/devision-full.svg" aria-hidden="true" class="mb-6 h-32" />
     </NuxtLink>
 
     <h1 class="text-5xl font-bold">Welcome back!</h1>
@@ -63,7 +63,8 @@ const password = ref("");
 const loginErr = ref("");
 
 async function login() {
-  await navigateTo("/home");
+  const success = await userStore.login(email.value, password.value);
+  if (success) return await navigateTo("/home");
 }
 </script>
 

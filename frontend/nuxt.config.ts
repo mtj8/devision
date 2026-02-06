@@ -28,7 +28,7 @@ export default defineNuxtConfig({
         { name: "description", content: "this is NOT discord" },
         { property: "og:description", content: "this is NOT discord" }
       ],
-      link: [{ rel: "icon", type: "image/png", href: "/devision-small.png" }],
+      link: [{ rel: "icon", type: "image/png", href: "/logo/devision-small.png" }],
       htmlAttrs: {
         lang: "en"
       }

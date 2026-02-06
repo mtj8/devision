@@ -9,7 +9,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
   if (!import.meta.client || !nuxtApp.isHydrating || !nuxtApp.payload.serverRendered) return;
 
   // TODO: add init call
-  await fetchEndpoint("init");
+  await userStore.init();
 
   if (!userStore.isAuth && to.meta.requiresAuth) return await navigateTo("/login", { redirectCode: 301 });
   else if (userStore.isAuth && to.meta.redirectIfAuth) return await navigateTo("/home", { redirectCode: 301 });

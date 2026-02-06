@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&family=Preahvihear&display=swap");
 @import "tailwindcss";
 @plugin "daisyui" {
   prefix: "du-";
@@ -15,8 +14,20 @@
   --color-text-lighter: #e0e0e0;
 }
 
+@font-face {
+  font-family: "National Park";
+  src: url("/fonts/NationalPark-VariableFont_wght.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Preahvihear";
+  src: url("/fonts/Preahvihear-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
 html {
-  @apply bg-bg-darker text-text-base select-none;
+  @apply bg-bg-darker text-text-base;
   scroll-behavior: smooth;
   scrollbar-width: thin;
 }
@@ -25,8 +36,15 @@ body {
   @apply bg-bg-base;
 }
 
-button {
-  @apply cursor-pointer;
+button,
+div[role="button"] {
+  @apply cursor-pointer select-none;
+  touch-action: manipulation;
+}
+
+img {
+  @apply select-none;
+  -webkit-user-drag: none;
 }
 
 * {
@@ -35,4 +53,8 @@ button {
 
 .preahvihear {
   font-family: "Preahvihear", sans-serif;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
 }

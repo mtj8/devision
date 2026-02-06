@@ -38,7 +38,7 @@ function toCamelCase<T>(obj: T): T {
   for (const key in obj) {
     const camelCaseKey = key.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase());
     // @ts-expect-error sybau sybau
-    camelCaseData[camelCaseKey] = obj[key];
+    camelCaseData[camelCaseKey] = toCamelCase(obj[key]);
   }
 
   return camelCaseData as T;
@@ -55,7 +55,7 @@ function toSnakeCase<T>(obj: T): T {
   for (const key in obj) {
     const snakeCaseKey = key.replace(/([A-Z])/g, (_, letter) => `_${letter.toLowerCase()}`);
     // @ts-expect-error sybau sybau
-    snakeCaseData[snakeCaseKey] = obj[key];
+    snakeCaseData[snakeCaseKey] = toSnakeCase(obj[key]);
   }
 
   return snakeCaseData as T;

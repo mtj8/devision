@@ -3,7 +3,7 @@
     <img
       v-for="(part, i) in parts"
       :key="part.src"
-      :src="part.src"
+      :src="`/logo/split/${part.src}`"
       aria-hidden="true"
       class="h-20 sm:h-36 md:h-44 lg:h-62 xl:h-80"
       :class="{ float: animationDone, 'bounce-in': part.isVisible, 'opacity-0': !part.isVisible }"
@@ -31,15 +31,15 @@ definePageMeta({
 
 const parts = ref([
   {
-    src: "/logo/dev.svg",
+    src: "dev.svg",
     isVisible: false
   },
   {
-    src: "/logo/dot.svg",
+    src: "dot.svg",
     isVisible: false
   },
   {
-    src: "/logo/ision.svg",
+    src: "ision.svg",
     isVisible: false
   }
 ]);

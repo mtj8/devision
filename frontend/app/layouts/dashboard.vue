@@ -3,7 +3,7 @@
     <AppHeader />
 
     <div class="flex h-full w-full items-center justify-between overflow-hidden">
-      <Sidebar v-if="isLoaded" />
+      <Sidebar />
 
       <div class="h-full w-full overflow-y-scroll">
         <slot></slot>
@@ -12,7 +12,4 @@
   </div>
 </template>
 
-<script setup lang="ts">
-const isLoaded = ref(false);
-onMounted(() => setTimeout(() => (isLoaded.value = true), 200));
-</script>
+<script setup lang="ts"></script>
