@@ -92,6 +92,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bsite.wsgi.application'
 
+# EMAIL configuration for SMTP
+EMAIL_BACKEND = "EMAIL_BACKEND"
+EMAIL_HOST = "EMAIL_HOST"
+EMAIL_PORT = "EMAIL_PORT"
+EMAIL_USE_TLS = "EMAIL_USE_TLS"
+EMAIL_HOST_USER = "EMAIL_HOST_USER"
+EMAIL_HOST_PASSWORD = "EMAIL_HOST_PASSWORD"
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases

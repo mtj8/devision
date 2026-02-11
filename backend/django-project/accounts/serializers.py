@@ -87,7 +87,7 @@ class CustomUserSerializer(serializers.BaseSerializer):
         # FIELD VALIDATION
         # ---------------------------
 
-        # Email validation (if provided)
+        # Email validation 
         if email is not serializers.empty:
             if not isinstance(email, str):
                 errors["email"] = "Must be a string."

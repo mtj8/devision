@@ -2,6 +2,7 @@ from django.db import models
 import uuid
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.auth.models import AbstractUser, BaseUserManager
+from django.utils import timezone
 
 # Helper tables
 class Skill(models.Model): # optional skills for the user
@@ -23,6 +24,8 @@ class Major(models.Model): # majors
     name = models.CharField(max_length=25, unique=True, db_index=True)
     def __str__(self):
         return self.name
+
+
 
 # Main tables
 class UserManager(BaseUserManager):
@@ -63,6 +66,8 @@ class User(AbstractUser):
 
     # use email for login
     email = models.EmailField(max_length=254, unique=True)
+    is_email_verified = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=False)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["username"]
@@ -141,4 +146,14 @@ class Friendship(models.Model):
 
     def __str__(self):
         return f"{self.user} -> {self.friend}"
-    
+
+class EmailVerification(models.Model): # verify email with activation code
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="email_verification")   
+    code_hash = models.CharField(max_length=128)  # store hash, not raw code
+    expires_at = models.DateTimeField()
+    attempts = models.PositiveSmallIntegerField(default=0)
+    sent_count = models.PositiveSmallIntegerField(default=0)
+    last_sent_at = models.DateTimeField(null=True, blank=True)
+
+    def is_expired(self):
+        return timezone.now() >= self.expires_at
